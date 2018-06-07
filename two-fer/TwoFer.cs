@@ -2,10 +2,6 @@
 
   public static class TwoFer
   {
-      public static string Name(string input = null)
-      {
-          var name = string.IsNullOrEmpty(input) ? "you" : input;
-
-          return $"One for {name}, one for me.";
-      }
+    public static string Name(string input = "you") =>
+      $"One for {input}, one for me.";
   }
