@@ -4,20 +4,13 @@ using System.Linq;
 
 public class NucleotideCount
 {
-    private Dictionary<char, int> nucleotideCounts = new Dictionary<char, int>
-    {
-        {'A', 0},
-        {'C', 0},
-        {'G', 0},
-        {'T', 0}
-    };
     public NucleotideCount(string sequence)
     {
         foreach (var letter in sequence)
         {
-            if(nucleotideCounts.ContainsKey(letter))
+            if(NucleotideCounts.ContainsKey(letter))
             {
-                nucleotideCounts[letter] = nucleotideCounts[letter] + 1;
+                NucleotideCounts[letter] = NucleotideCounts[letter] + 1;
             }
             else
             {
@@ -26,14 +19,13 @@ public class NucleotideCount
         }
     }
 
-    public IDictionary<char, int> NucleotideCounts
+    public IDictionary<char, int> NucleotideCounts { get; } = new Dictionary<char, int>
     {
-        get
-        {
-            return nucleotideCounts;
-        }
-    }
-    
+        {'A', 0},
+        {'C', 0},
+        {'G', 0},
+        {'T', 0}
+    };
 }
 
 public class InvalidNucleotideException : Exception { }
