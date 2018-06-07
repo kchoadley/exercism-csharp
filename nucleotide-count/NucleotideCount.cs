@@ -13,7 +13,7 @@ public class NucleotideCount
             }
             else
             {
-                throw new InvalidNucleotideException();
+                throw new InvalidNucleotideException($"Invalid Nucleotide character {letter}.");
             }
         }
     }
@@ -27,4 +27,8 @@ public class NucleotideCount
     };
 }
 
-public class InvalidNucleotideException : Exception { }
+public class InvalidNucleotideException : Exception
+{
+    public InvalidNucleotideException() : base() { }
+    public InvalidNucleotideException(string message) : base(message) { }
+}
