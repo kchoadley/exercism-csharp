@@ -3,13 +3,13 @@ using System.Linq;
 
 public class School
 {
-    private SortedDictionary<int, SortedList<string, string>> roster = new SortedDictionary<int, SortedList<string, string>>();
+    private SortedList<int, SortedDictionary<string, string>> roster = new SortedList<int, SortedDictionary<string, string>>();
     public void Add(string student, int grade)
     {
         // create grade if it doesn't exists yet
         if (!roster.ContainsKey(grade))
         {
-            roster.Add(grade, new SortedList<string, string>());
+            roster.Add(grade, new SortedDictionary<string, string>());
         }
         roster[grade].Add(student, student);
     }
