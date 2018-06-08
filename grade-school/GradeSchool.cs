@@ -1,21 +1,17 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 public class School
 {
-    private SortedDictionary<int, List<string>> roster = new SortedDictionary<int, List<string>>();
+    private SortedDictionary<int, SortedList<string, string>> roster = new SortedDictionary<int, SortedList<string, string>>();
     public void Add(string student, int grade)
     {
         // create grade if it doesn't exists yet
         if (!roster.ContainsKey(grade))
         {
-            roster.Add(grade, new List<string>());
+            roster.Add(grade, new SortedList<string, string>());
         }
-        // lazy solution, should add to sorted index.
-        roster[grade].Add(student);
-        roster[grade].Sort();
+        roster[grade].Add(student, student);
     }
 
     public IEnumerable<string> Roster()
@@ -23,14 +19,14 @@ public class School
         List<string> students = new List<string>();
         foreach(var grade in roster) 
         {
-            foreach(var student in roster[grade.Key])
+            foreach(var student in grade.Value)
             {
-                students.Add(student);
+                students.Add(student.Value);
             }
         }
         return students;
     } 
 
     public IEnumerable<string> Grade(int grade) =>
-        roster.ContainsKey(grade) ? roster[grade] : new List<string>();
+        roster.ContainsKey(grade) ? roster[grade].Keys.ToList<string>() : new List<string>();
 }
