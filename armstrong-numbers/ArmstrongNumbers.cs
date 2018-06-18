@@ -18,5 +18,5 @@ public static class ArmstrongNumbers
             number :
             number * number.Pow(power - 1)
         );
-
+   
 }
