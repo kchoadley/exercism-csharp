@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RationalNumbers", "RationalNumbers.csproj", "{5280C762-1E9A-4A70-A0DC-67421D308056}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5280C762-1E9A-4A70-A0DC-67421D308056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5280C762-1E9A-4A70-A0DC-67421D308056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5280C762-1E9A-4A70-A0DC-67421D308056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5280C762-1E9A-4A70-A0DC-67421D308056}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CD3FBD2-2FE9-4130-BAE3-22F6A3A2F496}
+	EndGlobalSection
+EndGlobal
