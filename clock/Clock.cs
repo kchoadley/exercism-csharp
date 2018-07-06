@@ -21,8 +21,5 @@ public struct Clock
 
     public Clock Subtract(int minutesToSubtract) => new Clock(0, this.timeOfDayInMinutes - minutesToSubtract);
 
-    public override string ToString()
-    {
-        return $"{Hours:D2}:{Minutes:D2}";
-    }
+    public override string ToString() => $"{Hours:D2}:{Minutes:D2}";
 }
