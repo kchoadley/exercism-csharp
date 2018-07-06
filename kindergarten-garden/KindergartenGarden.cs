@@ -11,44 +11,48 @@ public enum Plant
 
 public class KindergartenGarden
 {
-    static string[] children = new List<string>()
+    private const int PlantsPerStudent = 2;
+    private static readonly string[] children = new string[12]
     {
         "Alice", "Bob", "Charlie", "David",
         "Eve", "Fred", "Ginny", "Harriet",
         "Ileana", "Joseph", "Kincaid", "Larry"
-    }.ToArray();
-    Dictionary<String, List<Plant>> kindergartenersPlants = new Dictionary<string, List<Plant>>();
-    Dictionary<char, Plant> mapPlants = new Dictionary<char, Plant>
+    };
+    private static readonly Dictionary<char, Plant> mapPlants = new Dictionary<char, Plant>
     {
         {  'V', Plant.Violets },
         {  'R', Plant.Radishes },
         {  'C', Plant.Clover },
         {  'G', Plant.Grass }
     };
+
+    private Dictionary<String, List<Plant>> kindergartenersPlants;
+
     public KindergartenGarden(string diagram) : this(diagram, children)
     {
     }
 
     public KindergartenGarden(string diagram, IEnumerable<string> students)
     {
-        foreach(var child in children)
+        kindergartenersPlants = new Dictionary<string, List<Plant>>();
+        string[] studentsArray = (string[])students;
+
+        foreach (var student in students)
         {
-            kindergartenersPlants.Add(child, new List<Plant>());
+            kindergartenersPlants.Add(student, new List<Plant>());
         }
 
-        var rows = diagram.Split("\n");
+        var rowsOfPlants = diagram.Split("\n");
 
-        foreach (var row in rows)
+        foreach (var row in rowsOfPlants)
         {
-            for (int count = 0; count < rows[0].Length; count++)
+            for (int plantPosition = 0; plantPosition < rowsOfPlants[0].Length; plantPosition++)
             {
-                int child = count / 2;
+                int studentId = plantPosition / PlantsPerStudent;
 
-                var character = row[count];
+                var character = row[plantPosition];
                 var plant = mapPlants[character];
-                kindergartenersPlants[children[child]].Add(plant);
-
-                //kindergartenersPlants[children[child]].Add(mapPlants[row[count]]);
+                kindergartenersPlants[studentsArray[studentId]].Add(plant);
             }
         }
     }
